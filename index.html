@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Secure Login</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <!-- Navbar with logo -->
+  <nav>
+    <div class="container">
+      <ul>
+        <li>
+          <img src="images/key.png" alt="Logo" height="50px">
+          Secure Login
+        </li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <!-- Welcome Section with Image and Text -->
+      <section id="welcome-section">
+        <div class="welcome-image">
+          <img src="images/account.png" alt="Welcome Image" height="300px">
+        </div>
+        <div class="welcome-text">
+          <h2>Welcome to Secure Login!</h2>
+          <p>We're happy to have you! Please choose an option below to either sign up or sign in to your account.</p>
+        </div>
+      </section>
+
+      <!-- Sign-Up Section -->
+      <section id="sign-up-section">
+        <h3>Sign Up</h3>
+        <form action="" method="POST">
+          <fieldset>
+            <legend>Create Your Account</legend>
+            <div>
+              <label for="name">User Name:</label>
+              <input type="text" name="name" placeholder="Enter your username">
+            </div>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" name="email" placeholder="Enter your email">
+            </div>
+            <div>
+              <label for="pass">Password:</label>
+              <input type="password" name="pass" placeholder="Enter your password">
+            </div>
+            <input type="submit" value="Sign Up">
+          </fieldset>
+        </form>
+        <p>Already have an account? <a href="#sign-in-section" id="show-sign-in">Sign In</a></p>
+      </section>
+
+      <!-- Sign-In Section -->
+      <section id="sign-in-section" style="display:none;">
+        <h3>Sign In</h3>
+        <form action="" method="POST">
+          <fieldset>
+            <legend>Sign In to Your Account</legend>
+            <div>
+              <label for="email">Email:</label>
+              <input type="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div>
+              <label for="pass">Password:</label>
+              <input type="password" name="pass" placeholder="Enter your password" required>
+            </div>
+            <input type="submit" value="Sign In">
+          </fieldset>
+        </form>
+        <p>Don't have an account? <a href="#sign-up-section" id="show-sign-up">Sign Up</a></p>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Secure Login | <a href="#terms">Terms of Service</a> | <a href="#privacy">Privacy Policy</a></p>
+  </footer>
+
+</body>
+</html>
