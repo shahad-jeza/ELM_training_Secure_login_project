@@ -11,9 +11,12 @@
   --primary-dark: #45a049;
   --text-color: #333;
   --background-light: #f9f9f9;
+  --card-background: #fff;
   --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.1);
-  --shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.1);
-  --transition-standard: all 0.3s ease; /* simple easing transtion */
+  --input-background: #f8f9fa;
+  --transition-standard: all 0.3s ease;
+  --welcome-gradient-start: #f9f9f9;
+  --welcome-gradient-end: #f0f0f0;
 }
 
 /* Body Styling */
@@ -387,4 +390,157 @@ footer a:hover {
   form legend {
     font-size: 1.5rem;
   }
+}
+
+
+/* extra styling for the JS */
+
+/* smooth transition for form sections */
+.auth-section {
+  transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+  opacity: 50%;
+  transform: scale(0.5);
+  display: none;
+}
+
+.auth-section.active {
+  opacity: 1;
+  transform: scale(1);
+  display: block;
+}
+
+/* error messages */
+.error-message {
+  color: #dc3545; 
+  font-size: 0.875rem;
+  margin-top: 5px;
+}
+
+input.is-invalid {
+  border-color: #dc3545 !important;
+  background-color: #f8d7da;
+}
+
+
+
+/* Dark mode custom properties */
+[data-theme="dark"] {
+  --primary-color: #6dd171;
+  --primary-dark: #5cb85c;
+  --text-color: #e1e1e1;
+  --background-light: #1a1a1a;
+  --card-background: #2d2d2d;
+  --shadow-soft: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --input-background: #3d3d3d;
+  --welcome-gradient-start: #1a1a1a;
+  --welcome-gradient-end: #2d2d2d;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  border-radius: 15px;
+  background: linear-gradient(45deg, #3d3d3d, #1a1a1a);
+  cursor: pointer;
+  border: 2px solid var(--primary-color);
+  transition: var(--transition-standard);
+  overflow: hidden;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  top: 1px;
+  left: 1px;
+  transition: var(--transition-standard);
+}
+
+.theme-toggle.dark::before {
+  left: 31px;
+  background: #ffd700;
+}
+
+.theme-toggle .icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  transition: var(--transition-standard);
+}
+
+.theme-toggle .sun-icon {
+  right: 8px;
+  opacity: 1;
+}
+
+.theme-toggle .moon-icon {
+  left: 8px;
+  opacity: 0;
+}
+
+.theme-toggle.dark .sun-icon {
+  opacity: 0;
+}
+
+.theme-toggle.dark .moon-icon {
+  opacity: 1;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] body {
+  background-color: var(--background-light);
+  color: var(--text-color);
+}
+
+[data-theme="dark"] nav {
+  background-color: var(--card-background);
+}
+
+/* Welcome section dark mode */
+#welcome-section {
+  background: linear-gradient(135deg, var(--welcome-gradient-start) 0%, var(--welcome-gradient-end) 100%);
+  transition: var(--transition-standard);
+}
+
+[data-theme="dark"] #welcome-section {
+  background: linear-gradient(135deg, var(--welcome-gradient-start) 0%, var(--welcome-gradient-end) 100%);
+}
+
+[data-theme="dark"] .welcome-text h2 {
+  color: var(--text-color);
+}
+
+[data-theme="dark"] .welcome-text p {
+  color: #999;
+}
+
+[data-theme="dark"] #sign-up-section,
+[data-theme="dark"] #sign-in-section {
+  background-color: var(--card-background);
+}
+
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] input[type="password"] {
+  background-color: var(--input-background);
+  color: var(--text-color);
+  border-color: #444;
+}
+
+[data-theme="dark"] input[type="text"]:focus,
+[data-theme="dark"] input[type="email"]:focus,
+[data-theme="dark"] input[type="password"]:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(109, 209, 113, 0.1);
+}
+
+[data-theme="dark"] footer {
+  background-color: #222;
 }
